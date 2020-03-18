@@ -4,8 +4,9 @@ const isAuth = require('../middleware/isauth');
 const obj = require('../middleware/permissions');
 
 const router = express.Router();
+router.get('/', shopController.homePage);
 
-router.get(['/', '/products'], shopController.getProducts);
+router.get('/products', shopController.getProducts);
 
 router.get('/products/:prodId', shopController.getProduct);
 

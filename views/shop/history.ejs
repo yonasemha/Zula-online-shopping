@@ -11,14 +11,39 @@
         <ul class="orders">
             <% orders.forEach(order => { %>
             <li class="orders__item">
-                <h1>Order - # <%= order._id %></h1>
+                <h1>Serial Numbers :</h1> <br>
+
+                <h1> <%= order._id %> </h1>
+
                 <ul class="orders__products">
                     <% order.products.forEach(p => { %>
-                    <li class=""><%= p.product.title %> (<%= p.quantity %>)
+                    <li class="">
+                        <%= p.product.title %> (<%= p.quantity %>)
+
+                    </li>
+
+
+                    <li class="">
+                        <img src="/images/<%= p.product.imageUrl%>" style="height: 200px; width: 20%;"
+                            class="responsive-img">
+
+                    </li> 
+
+                   
+
+
+                    <li class="">
+                        $ <%= p.product.price %>
 
                     </li>
 
                     <% }); %>
+                    
+                    <li class="">
+                        <%= order.date %>
+   
+                       </li>
+                    
                 </ul>
                 <div class="modal-footer">
                     <form action="/delete-history" method="POST">

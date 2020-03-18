@@ -21,4 +21,6 @@ router.post('/edit-product', isAuth, check.permit("admin"), adminController.post
 
 router.post('/delete-product', isAuth,check. permit("admin"), adminController.postDeleteProduct);
 
+
+
 module.exports = router;

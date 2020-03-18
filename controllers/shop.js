@@ -2,13 +2,23 @@ const Product = require('../models/product');
 const Order = require('../models/order');
 const User = require('../models/user');
 const ObjectId = require("mongodb").ObjectId
+
+
+exports.homePage=(req, res, next) => {
+    res.render('homePage', {
+    pageTitle: 'My home page',
+    path: '/'
+    })
+};
+
+
 exports.getProducts = (req, res, next) => {
     Product.find()
         .then(products => {
             res.render('shop/product-list', {
                 prods: products,
                 pageTitle: 'Shop',
-                path: '/'
+                path: '/products'
             });
         })
         .catch(err => console.log(err));
@@ -52,7 +62,7 @@ exports.postCart = async (req, res, next) => {
             return user.addToCart(product);
         })
         .then(result => {
-            res.redirect('/');
+            res.redirect('/products');
         })
         .catch(err => console.log(err));
 };
@@ -91,7 +101,8 @@ exports.postOrder = async (req, res, next) => {
                     name: req.session.user.email,
                     userId: req.session.user
                 },
-                products: products
+                products: products,
+                date : new Date()
             });
             return order.save();
         })
@@ -107,6 +118,8 @@ exports.postOrder = async (req, res, next) => {
 exports.getOrders = (req, res, next) => {
     Order.find({ 'user.userId': req.session.user._id })
         .then(orders => {
+            
+            console.log("=================",orders)
             res.render('shop/history', {
                 path: '/orders',
                 pageTitle: 'Your Orders',

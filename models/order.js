@@ -19,7 +19,9 @@ const orderSchema = new Schema({
             required: true,
             ref: 'User'
         }
-    }
+
+    },
+    date:{type:Date}
 });
 
 module.exports = mongoose.model('Order', orderSchema);

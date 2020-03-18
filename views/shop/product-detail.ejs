@@ -10,15 +10,13 @@
                     <h1 class="product__title"><%= product.title %></h1>
                 </header>
                 <div class="card__image">
-                    <img src="<%= product.imageUrl %>" alt="A Book">
+                    <img src="/images/<%= product.imageUrl %>" style="height: 200px; width: 20%;" alt="A Book">
                 </div>
                 <div class="card__content">
                     <h2 class="product__price"><%= product.price %></h2>
                     <p class="product__description"><%= product.description %></p>
                 </div>
-                <div class="card__actions">
-                    <button class="btn btn-primary">Add to Cart</button>
-                </div>
+                <%- include('../includes/add-to-cart.ejs', {product: product}) %>
             </article>
         </div>
     </main>

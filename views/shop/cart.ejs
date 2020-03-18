@@ -11,7 +11,7 @@
             <li class="cart__item">
                 <h1><%= p.productId.title %></h1>
                 <h2>Quantity: <%= p.quantity %></h2>
-                <h2>Price:<%= p.productId.price %></h2>
+                <h2>Price:$<%= p.productId.price %></h2>
 
                 <form action="/cart-delete-item" method="POST">
                     <input type="hidden" value="<%= p.productId._id %>" name="productId">
@@ -30,7 +30,7 @@
         <div>
            
             <h3 align="center"> <strong> Payment Method: </strong> </h3>  
-            <h6 align="center"> <strong> All Type of Cards Are Accepted: </strong> </h6>  
+            <h6 align="center"> <strong> We accept all type of Cards!!</strong> </h6>  
                     <div class="container">
 
                         <h3 align="center"> <strong>  <a href="/payment-page" class="btn btn-primary">Credit/Debit Card</a> </strong> </h3>  
