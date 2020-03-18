@@ -1,2 +1,2 @@
 # Zula-online-shopping
-A project based on Mongodb, NodeJS, and  Express.
+Development team for zula online shopping application project based on Mongodb, NodeJS, and  Express.
