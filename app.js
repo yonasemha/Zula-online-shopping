@@ -35,7 +35,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(cookieParser());
 app.use(session({
-    name: 'Tina',
+    name: 'Embaye',
     secret: 'my secret',
     resave: false,
     saveUninitialized: false,
@@ -50,19 +50,6 @@ app.use((req, res, next) => {
     res.locals.csrfToken = req.csrfToken();
     next();
 });
-
-// app.use((req, res, next) => {
-//     User.findById('5e6ef2bf0fe80a4774ff32c2')
-//         .then(user => {
-           
-//             req.user = user;
-//             console.log("====",req.user);
-//             next();
-//         })
-//         .catch(err => console.log(err));
-// });
-
-
 
 
 
@@ -79,8 +66,8 @@ app.use(errorController.get404);
 
 mongoose.connect('mongodb://localhost:27017/onlineshopping', { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => {
-        app.listen(1000, ()=>{
-            console.log('Listening 888')
+        app.listen(222, ()=>{
+            console.log('Listening 222')
         });
     }).catch(err => console.error(err));
 

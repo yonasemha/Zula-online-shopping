@@ -28,11 +28,18 @@
         </ul>
         <hr>
         <div>
-            <form action="/payment-page" method="GET">
-                <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+           
+            <h3 align="center"> <strong> Payment Method: </strong> </h3>  
+            <h6 align="center"> <strong> All Type of Cards Are Accepted: </strong> </h6>  
+                    <div class="container">
 
-                <button type="submit" class="btn btn-outline-success">Order Now!</button>
-            </form>
+                        <h3 align="center"> <strong>  <a href="/payment-page" class="btn btn-primary">Credit/Debit Card</a> </strong> </h3>  
+             
+                           
+
+
+            </div>
+           
         </div>
 
         <% } else { %>
