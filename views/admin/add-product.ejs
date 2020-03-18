@@ -1,0 +1,31 @@
+<%- include('../includes/head.ejs') %>
+<link rel="stylesheet" href="/css/forms.css">
+<link rel="stylesheet" href="/css/product.css">
+</head>
+
+<body>
+  <%- include('../includes/navigation.ejs') %>
+
+  <div class="container" style="width: 50%">
+    <form class="form" action="/admin/add-product/?_csrf=<%= csrfToken %>" method='POST' enctype="multipart/form-data">
+      <div class="form-group">
+        <label for="title">Title:</label>
+        <input type="text" class="form-control" id="title" name="title">
+      </div>
+      <div class="form-group">
+        <label for="avatar">Image:</label>
+        <input type="file" class="form-control" id="image" name="avatar">
+      </div>
+      <div class="form-group">
+        <label for="price">Price:</label>
+        <input type="number" class="form-control" id="price" name="price">
+      </div>
+      <div class="form-group">
+        <label for="description">Description:</label>
+        <input type="text" class="form-control" id="description" name="description">
+      </div>
+
+      <button class="btn btn-primary" type="submit">Add Product</button>
+
+
+      <%- include('../includes/end.ejs') %>

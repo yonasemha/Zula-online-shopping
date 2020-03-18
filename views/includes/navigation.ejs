@@ -1,0 +1,74 @@
+<header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <a class="navbar-brand" href="#">Zula Shop</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01"
+            aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarColor01">
+            <ul class="navbar-nav mr-auto">
+
+
+                <li id="aboutPage" class="nav-item"
+                    style="border-left: white 1px solid; padding-left: 2em; padding-right: 2em;">
+                    <a class="nav-link active" class="<%= path === '/products' ? 'active' : '' %>"
+                        href="/products">Products </a>
+
+                </li>
+
+
+                <% if (isAuthenticated) {%>
+
+
+
+                <li id="virtualTourPage" class="nav-item"
+                    style="border-left: white 1px solid; padding-left: 2em; padding-right: 2em;">
+                    <a class="nav-link active" href="/admin/add-product">Add Product </a>
+                </li>
+
+                <li id="booksPage" class="nav-item"
+                    style="border-left: white 1px solid; padding-left: 2em; padding-right: 2em;">
+                    <a class="nav-link active" href="/admin/products">Admin Product</a>
+                </li>
+                <li id="booksPage" class="nav-item"
+                    style="border-left: white 1px solid; padding-left: 2em; padding-right: 2em;">
+                    <a class="nav-link active" href="/cart">Cart</a>
+                </li>
+                <li id="booksPage" class="nav-item"
+                    style="border-left: white 1px solid; padding-left: 2em; padding-right: 2em;">
+                    <a class="nav-link active" href="/order-history">Orders History</a>
+                </li>
+
+                <%}%>       
+
+                  </ul>
+                  <% if (!isAuthenticated) {%>
+                <span class="align-right">
+                    <a class="text-white" href="/signup">Sign Up </a>&nbsp&nbsp<a class="text-white" href="/login">Log
+                        In
+                    </a>
+
+                </span>
+                <%} else {%>
+                <li class="nav-item">
+                    <form action="/logout" method="POST">
+                        <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                        <button class='btn btn-primary' type="submit">Logout</button>
+                    </form>
+                </li>
+                <%}%>
+               
+
+                  </ul>
+
+              
+            </div>
+        </nav>
+    </header>
+</head>
+</div>
+ </div>
+</div>
+
+
+     

@@ -1,0 +1,35 @@
+<%- include('../includes/head.ejs') %>
+<link rel="stylesheet" href="/css/forms.css">
+<link rel="stylesheet" href="/css/product.css">
+</head>
+
+<body>
+    <%- include('../includes/navigation.ejs') %>
+    <main>
+        <form class="product-form" action="/admin/edit-product" method="POST">
+    
+            <div class="form-group">
+                <input type="hidden" class="form-control"  name="_id" id="id" value="<%= product._id %>" readonly>
+            </div>
+            <div class="form-group">
+                <label for="title">Title:</label>
+                <input type="text"  class="form-control" name="title" id="title" value="<%= product.title %>">
+            </div>
+            <div class="form-group" >
+                <label for="imageUrl">Image URL:</label>
+                <input type="text"  class="form-control" name="imageUrl" id="imageUrl" value="<%= product.imageUrl %>">
+            </div>
+            <div class="form-group">
+                <label for="price">Price:</label>
+                <input type="number"  class="form-control" name="price" id="price" step="0.01" value="<%= product.price %>">
+            </div>
+            <div class="form-group">
+                <label for="description">Description:</label>
+                <textarea name="description"class="form-control" id="description"><%= product.description %></textarea>
+            </div>
+            <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+            <button class="btn btn-primary" type="submit">Edit Product</button>
+        </form>
+    </main>
+
+    <%- include('../includes/end.ejs') %>

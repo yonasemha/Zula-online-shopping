@@ -1,0 +1,36 @@
+<%- include('../includes/head.ejs') %>
+<link rel="stylesheet" href="/css/orders.css">
+</head>
+
+<body>
+    <%- include('../includes/navigation.ejs') %>
+    <main>
+        <% if (orders.length <= 0) { %>
+        <h1>Nothing there!</h1>
+        <% } else { %>
+        <ul class="orders">
+            <% orders.forEach(order => { %>
+            <li class="orders__item">
+                <h1>Order - # <%= order._id %></h1>
+                <ul class="orders__products">
+                    <% order.products.forEach(p => { %>
+                    <li class=""><%= p.product.title %> (<%= p.quantity %>)
+
+                    </li>
+
+                    <% }); %>
+                </ul>
+                <div class="modal-footer">
+                    <form action="/delete-history" method="POST">
+                        <input type="hidden" value="<%= order._id %>" name="orderId">
+                        <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                        <button class="btn btn-outline-danger" type="submit">Delete</button>
+                    </form>
+                </div>
+            </li>
+            <% }); %>
+        </ul>
+        <% } %>
+
+
+        <%- include('../includes/end.ejs') %>
