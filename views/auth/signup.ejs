@@ -16,18 +16,21 @@
             </div>
             <div class="form-group">
                 <label for="password">Password:</label>
-                <input type="text" class="form-control" id="password1" name="password">
+                <input type="password" class="form-control" id="password1" name="password">
             </div>
 
             <div class="form-group">
                 <label for="confirmpassword">Confirm Password:</label>
-                <input type="text" class="form-control" id="confirmpassword" name="confirmpassword">
+                <input type="password" class="form-control" id="confirmpassword" name="confirmpassword">
             </div>
 
             <div class="form-group">
                 <label for="role">Role:</label>
-                <input type="text" class="form-control" id="role1" name="role">
-            </div>
+                <select id="role" class="form-control" name="role">
+                    <option>choose...</option>
+                    <option>admin</option>
+                    <option>user</option>
+                  </select>            </div>
             <input type="hidden" name="_csrf" value="<%= csrfToken %>">
             <button class="btn btn-primary" type="submit">Sign Up </button>
         </form>
