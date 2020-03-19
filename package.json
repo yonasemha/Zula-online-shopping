@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "Complete Node.js Guide",
   "main": "app.js",
- 
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "set MONGODB_URL=mongodb+srv://wembaye:1234@cluster0-rxgd3.gcp.mongodb.net/onlineshopping && nodemon app.js",
@@ -34,5 +33,4 @@
     "multer": "^1.4.2",
     "pug": "^2.0.3"
   }
-
 }
