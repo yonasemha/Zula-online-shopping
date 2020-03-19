@@ -1,0 +1,6 @@
+{
+     "env": {
+     "MONGO_URL":" mongodb+srv://zulashoping:9258959204@cluster0- yumlg.gcp.mongodb.net/onlineshopping?retryWrites=true&w=majority"
+     }
+     }
+    

@@ -6,6 +6,12 @@ const session = require('express-session');
 const MongoSessionStore = require('connect-mongodb-session')(session);
 const flash = require('connect-flash');
 const User = require("./models/user")
+const helmet = require('helmet');
+const compression = require('compression');
+const morgan = require('morgan');
+ 
+ 
+
 const errorController = require('./controllers/error');
 // const mongoConnect = require('./util/database').mongoConnect;
 const mongoose = require('mongoose');
@@ -22,17 +28,32 @@ const adminRoutes = require('./routes/admin');
 const shopRoutes = require('./routes/shop');
 const authRoutes = require('./routes/auth');
 const errorRoutes = require('./routes/error');
+//
+
+const accessLogStream = fs.createWriteStream(
+    path.join(__dirname, 'access.log'), { flags: 'a' });
+    
+
+
+
+const MONGODB_URL =
+`mongodb+srv://${process.env.MONGO_USER}:${
+process.env.MONGO_PWD}@cluster0-
+yumlg.gcp.mongodb.net/${process.env.MONGO_DBNAME}?retryWrites=t
+rue&w=majority`;
 
 const store = new MongoSessionStore({
-    uri: 'mongodb://localhost:27017/onlineshopping',
+    uri: MONGODB_URL,
     collection: 'mySessions'
 });
 const csrfProtection = csrf();
-
+app.use(helmet())
+app.use(compression());
+app.use(morgan('combined'));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use('/images',express.static(path.join(__dirname,'public','uploads')))
 app.use(express.static(path.join(__dirname, 'public')));
-
+app.use(morgan('combined', { stream: accessLogStream }))
 app.use(cookieParser());
 app.use(session({
     name: 'Embaye',
@@ -64,9 +85,9 @@ app.use(errorController.get404);
 
 
 
-mongoose.connect('mongodb://localhost:27017/onlineshopping', { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect( MONGODB_URL, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => {
-        app.listen(222, ()=>{
+        app.listen(process.env.PORT || 222, ()=>{
             console.log('Listening 222')
         });
     }).catch(err => console.error(err));
