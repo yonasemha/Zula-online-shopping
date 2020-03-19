@@ -1,0 +1,8 @@
+::1 - - [19/Mar/2020:19:12:14 +0000] "GET /products HTTP/1.1" 200 - "http://localhost:222/order-history" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.132 Safari/537.36"
+::1 - - [19/Mar/2020:19:12:14 +0000] "GET /css/product.css HTTP/1.1" 304 - "http://localhost:222/products" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.132 Safari/537.36"
+::1 - - [19/Mar/2020:19:12:16 +0000] "GET / HTTP/1.1" 200 - "http://localhost:222/products" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.132 Safari/537.36"
+::1 - - [19/Mar/2020:19:12:16 +0000] "GET /css/product.css HTTP/1.1" 304 - "http://localhost:222/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.132 Safari/537.36"
+::1 - - [19/Mar/2020:19:12:16 +0000] "GET /css/forms.css HTTP/1.1" 304 - "http://localhost:222/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.132 Safari/537.36"
+::1 - - [19/Mar/2020:19:12:16 +0000] "GET /images/store2.jpg HTTP/1.1" 304 - "http://localhost:222/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.132 Safari/537.36"
+::1 - - [19/Mar/2020:19:12:16 +0000] "GET /images/store1.jpeg HTTP/1.1" 304 - "http://localhost:222/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.132 Safari/537.36"
+::1 - - [19/Mar/2020:19:12:16 +0000] "GET /images/store3.jpg HTTP/1.1" 304 - "http://localhost:222/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.132 Safari/537.36"
