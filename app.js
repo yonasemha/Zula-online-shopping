@@ -23,8 +23,9 @@ const shopRoutes = require('./routes/shop');
 const authRoutes = require('./routes/auth');
 const errorRoutes = require('./routes/error');
 
+const MONGODB_URL='mongodb+srv://wembaye:1234@cluster0-rxgd3.gcp.mongodb.net/onlineshopping'
 const store = new MongoSessionStore({
-    uri: 'mongodb://localhost:27017/onlineshopping',
+    uri: process.env.MONGODB_URL,
     collection: 'mySessions'
 });
 const csrfProtection = csrf();
@@ -63,10 +64,9 @@ app.use(errorRoutes);
 app.use(errorController.get404);
 
 
-
-mongoose.connect('mongodb://localhost:27017/onlineshopping', { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(MONGODB_URL, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => {
-        app.listen(222, ()=>{
+        app.listen(process.env.PORT || 222, ()=>{
             console.log('Listening 222')
         });
     }).catch(err => console.error(err));
