@@ -29,10 +29,10 @@ const errorRoutes = require('./routes/error');
 const acessLogstream = fs.createWriteStream(path.join(__dirname,"acess.log"),{flags:"a"});
 app.use(morgan("combined",{stream:acessLogstream}))
 
-const MONGODB_URL =`mongodb+srv://${process.env.MONGO_USER}:${
-process.env.MONGO_PWD}@zula-
-yumlg.gcp.mongodb.net/${process.env.MONGO_DBNAME}?retryWrites=t
-rue&w=majority`;
+// const MONGODB_URL =`mongodb+srv://${process.env.MONGO_USER}:${
+// process.env.MONGO_PWD}@zula-
+// yumlg.gcp.mongodb.net/${process.env.MONGO_DBNAME}?retryWrites=t
+// rue&w=majority`;
 
 const MONGODB_URL='mongodb+srv://wembaye:1234@cluster0-rxgd3.gcp.mongodb.net/onlineshopping'
 const store = new MongoSessionStore({
