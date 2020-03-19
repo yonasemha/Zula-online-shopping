@@ -2,6 +2,10 @@ const path = require('path');
 const express = require('express');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
+const helmet = require("helmet")
+const compression = require("compression")
+const morgan = require("morgan")
+const fs = require("fs")
 const session = require('express-session');
 const MongoSessionStore = require('connect-mongodb-session')(session);
 const flash = require('connect-flash');
@@ -22,6 +26,9 @@ const adminRoutes = require('./routes/admin');
 const shopRoutes = require('./routes/shop');
 const authRoutes = require('./routes/auth');
 const errorRoutes = require('./routes/error');
+const acessLogstream = fs.createWriteStream(path.join(__dirname,"acess.log"),{flags:"a"});
+app.use(morgan("combined",{stream:acessLogstream}))
+
 
 const MONGODB_URL='mongodb+srv://wembaye:1234@cluster0-rxgd3.gcp.mongodb.net/onlineshopping'
 const store = new MongoSessionStore({
@@ -29,6 +36,8 @@ const store = new MongoSessionStore({
     collection: 'mySessions'
 });
 const csrfProtection = csrf();
+app.use(helmet())
+app.use(compression())
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use('/images',express.static(path.join(__dirname,'public','uploads')))
