@@ -2,16 +2,14 @@ const path = require('path');
 const express = require('express');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
+const helmet = require("helmet")
+const compression = require("compression")
+const morgan = require("morgan")
+const fs = require("fs")
 const session = require('express-session');
 const MongoSessionStore = require('connect-mongodb-session')(session);
 const flash = require('connect-flash');
 const User = require("./models/user")
-const helmet = require('helmet');
-const compression = require('compression');
-const morgan = require('morgan');
- 
- 
-
 const errorController = require('./controllers/error');
 // const mongoConnect = require('./util/database').mongoConnect;
 const mongoose = require('mongoose');
@@ -28,32 +26,27 @@ const adminRoutes = require('./routes/admin');
 const shopRoutes = require('./routes/shop');
 const authRoutes = require('./routes/auth');
 const errorRoutes = require('./routes/error');
-//
+const acessLogstream = fs.createWriteStream(path.join(__dirname,"acess.log"),{flags:"a"});
+app.use(morgan("combined",{stream:acessLogstream}))
 
-const accessLogStream = fs.createWriteStream(
-    path.join(__dirname, 'access.log'), { flags: 'a' });
-    
-
-
-
-const MONGODB_URL =
-`mongodb+srv://${process.env.MONGO_USER}:${
+const MONGODB_URL =`mongodb+srv://${process.env.MONGO_USER}:${
 process.env.MONGO_PWD}@zula-
 yumlg.gcp.mongodb.net/${process.env.MONGO_DBNAME}?retryWrites=t
 rue&w=majority`;
 
+const MONGODB_URL='mongodb+srv://wembaye:1234@cluster0-rxgd3.gcp.mongodb.net/onlineshopping'
 const store = new MongoSessionStore({
-    uri: MONGODB_URL,
+    uri: process.env.MONGODB_URL,
     collection: 'mySessions'
 });
 const csrfProtection = csrf();
 app.use(helmet())
-app.use(compression());
-app.use(morgan('combined'));
+app.use(compression())
+
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use('/images',express.static(path.join(__dirname,'public','uploads')))
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(morgan('combined', { stream: accessLogStream }))
+
 app.use(cookieParser());
 app.use(session({
     name: 'Embaye',
@@ -82,11 +75,7 @@ app.use(authRoutes);
 app.use(errorRoutes);
 
 app.use(errorController.get404);
-
-
-
-
-mongoose.connect( MONGODB_URL, { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(MONGODB_URL, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => {
         app.listen(process.env.PORT || 222, ()=>{
             console.log('Listening 222')

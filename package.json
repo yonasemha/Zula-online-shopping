@@ -3,12 +3,13 @@
   "version": "1.0.0",
   "description": "Complete Node.js Guide",
   "main": "app.js",
+ 
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "set MONGO_URL= mongodb+srv://zula3:JdXVvDjRKseEo6L7@zula-ks5oc.mongodb.net/test && node app.js",
+    "start": "set MONGODB_URL=mongodb+srv://wembaye:1234@cluster0-rxgd3.gcp.mongodb.net/onlineshopping && nodemon app.js",
     "start:dev": "nodemon app.js"
   },
-  "author": "Tina",
+  "author": "Embaye",
   "license": "ISC",
   "devDependencies": {
     "nodemon": "^1.18.3"
@@ -33,5 +34,5 @@
     "multer": "^1.4.2",
     "pug": "^2.0.3"
   }
-  
+
 }
