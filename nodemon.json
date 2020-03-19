@@ -1,6 +1,6 @@
 {
       "env": {
-      "MONGO_URL": "mongodb+srv://wembaye:1234@cluster0-rxgd3.gcp.mongodb.net/onlineshopping?retryWrites=true&w=majority"
+      "MONGO_URL": "mongodb+srv://zula3:JdXVvDjRKseEo6L7@zula-ks5oc.mongodb.net/test?retryWrites=true&w=majority"
      }
 }
     
