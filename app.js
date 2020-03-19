@@ -30,7 +30,8 @@ const acessLogstream = fs.createWriteStream(path.join(__dirname,"acess.log"),{fl
 app.use(morgan("combined",{stream:acessLogstream}))
 
 
-const MONGODB_URL='mongodb+srv://wembaye:1234@cluster0-rxgd3.gcp.mongodb.net/onlineshopping'
+//const MONGODB_URL='mongodb+srv://wembaye:1234@cluster0-rxgd3.gcp.mongodb.net/onlineshopping'
+const MONGODB_URL = `mongodb+srv://${process.env.MONGO_USER}:${ process.env.MONGO_PWD}@cluster0- yumlg.gcp.mongodb.net/${process.env.MONGO_DBNAME}?retryWrites=t rue&w=majority`;
 const store = new MongoSessionStore({
     uri: process.env.MONGODB_URL,
     collection: 'mySessions'
