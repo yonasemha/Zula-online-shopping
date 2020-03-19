@@ -38,7 +38,7 @@ const accessLogStream = fs.createWriteStream(
 
 const MONGODB_URL =
 `mongodb+srv://${process.env.MONGO_USER}:${
-process.env.MONGO_PWD}@cluster0-
+process.env.MONGO_PWD}@zula-
 yumlg.gcp.mongodb.net/${process.env.MONGO_DBNAME}?retryWrites=t
 rue&w=majority`;
 

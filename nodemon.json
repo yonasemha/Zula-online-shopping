@@ -1,6 +1,6 @@
 {
      "env": {
-     "MONGO_URL":" mongodb+srv://zulashoping:9258959204@cluster0- yumlg.gcp.mongodb.net/onlineshopping?retryWrites=true&w=majority"
+     "MONGO_URL":"mongodb+srv://zula3:JdXVvDjRKseEo6L7@zula-ks5oc.mongodb.net/test?retryWrites=true&w=majority"
      }
      }
     
