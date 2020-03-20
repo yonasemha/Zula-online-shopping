@@ -6,8 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "set MONGO_URL=mongodb+srv://zula3:JdXVvDjRKseEo6L7@zula-ks5oc.mongodb.net/test && node app.js",
-    "start-server": "node app.js",
-    "start:dev": "nodemon app.js"
+    "start-server": "node app.js"
+    
   },
   "author": "Embaye",
   "license": "ISC",
